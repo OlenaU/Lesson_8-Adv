@@ -11,19 +11,29 @@
     <title>ID verification_Vue.js</title>
 </head>
 <body>
-    <div id="app">
+<div id="app">
     <form >
         <label for="inputCode">Будь ласка, введіть номер ІПН з 10 цифр</label>
-        <input :value = "number" v-model="inputIDnumber" @input="IDcheck" id = "idnumber" class = "Tax m-3 border border-white"/> 
+        <input type = "number"
+         v-model="inputValue"
+         v-on:input="inputValue"
+        id = "idnumber" 
+        class = "Tax m-3 border border-white"/>    
+        <button @click="onSubmit" type="button" class="btn btn-secondary p-1"> Перевірити </button>  
     </form>
     <div id="idData">
-        <h3>Ваша стать {{gender}}</h3>
+        <h3></h3>
+        <h3>Жінка</h3>
+        <h3 >Чоловік</h3>
+        
         <h3>Ваша дата народження {{birtdate}}</h3>
         <h3>За зодіакальним гороскопом ви {{zodiacSign}}</h3>
         <h3>За китайським гороскопом ви народилися у рік {{chineseYearSign}}</h3>
+        <h3 id="test">{{inputValue}}{{inputArray}}</h3>
 
     </div>
 </div>
     
 </body>
 </html>
+//v-bind:value="inputValue"

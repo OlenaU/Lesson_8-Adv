@@ -1,18 +1,55 @@
 import {createApp} from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
-
-const maincheck  = [-1, 5, 7, 9, 4, 6, 10, 5, 7];
+//let id = 2883616949; 
 
 const appConfig = {
     data(){
         return {
-            inputIDnumber:'',
+            inputValue:'',
             birtdate:'',
             zodiacSign:['Овен', 'Телець','Близнюки','Рак','Лев','Діва','Терези','Скорпіон','Стрілець','Козоріг','Водолій'],
             chineseYearSign: ['Щура', 'Бика', 'Тигра', 'Кролика', 'Дракона', 'Змії', 'Коня', 'Вівці', 'Мавпи', 'Півня', 'Собаки', 'Свині'],
-            gender:['чоловік', 'жінка']
+            gender:['чоловік', 'жінка'],
+            maincheck: [-1, 5, 7, 9, 4, 6, 10, 5, 7]
+            
         }
     },
-    computed() {
+methods:{
+   onSubmit(){
+        console.log(`inputValue`, this.inputValue);
+    }
+   },
+
+computed:{
+    inputArray(){
+        let inputArray = this.inputValue.toString().split('');
+        console.log(inputArray);
+    }
+    ,
+    ivLength(){
+        let ivl = this.inputArray.length
+        return ivl;
+    }
+   }
+   
+   }
+
+   
+
+
+   
+    const app = createApp(appConfig);
+
+    app.mount('#app'); 
+
+
+   
+        
+      /* gender (){
+        this.inputValue[8]  % 2 == 0 ? 'Жінка' : 'Чоловік'
+        console.log (this.inputValue);*/
+
+    
+    /*computed() {
 
         function IDcheck(){
             //let inputcode = document.getElementById("idnumber").value.split("")
@@ -63,10 +100,7 @@ return alert(`The ID is not valid`);
 
 }
 */
-}
-}
-}
 
-const app = createApp(appConfig);
 
-app.mount('#app'); 
+
+
